@@ -2,6 +2,8 @@
 alert()
 ```
 
+
+
 ```
 new Date()
 
@@ -31,6 +33,8 @@ document.body.innerHTML= "<h1> Date today is </h1> " + new Date()
 ```
 
 ### External Javascript 
+<script src="" async></script>
+
 
 script.js
 ```
@@ -40,4 +44,8 @@ script.js
 
 index.html
 ```
+<body>
+    <script="script.js">
+    </script>
+</body>
 ```
