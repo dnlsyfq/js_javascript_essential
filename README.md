@@ -22,8 +22,29 @@ document.querySelector(" ").classList.add("<class>")
 document.querySelector(" ").classList.remove("<class">)
 document.querySelector(" ").classList[1]
 document.querySelector(" ").classList.toggle("<class>") // on/off return true/false
+document.querySelector(" ").classList.contains("<class>") // true/false
+element.hasAttribute(name)
+element.setAttribute(attribute name, attribute value)
+element.removeAttribute(attributename)
+element.getAttribute(attributename) // return attr value
+
+const ctaElement = document.querySelector(".cta a")
+console.log(ctaElement.attributes)
+if(ctaElement.hasAttribute("target")){
+    console.log(ctaElement.getAttribute("target"))
+} else {
+    ctaElement.setAttribute("target","_blank");
+}
+
+
 ```
 
+DOM Element Create Method
+```
+.createElement()
+.createTextNode()
+.appendChild()
+```
 
 
 ```
