@@ -39,12 +39,45 @@ if(ctaElement.hasAttribute("target")){
 
 ```
 
-DOM Element Create Method
+## DOM Element Create Method
 ```
 .createElement()
 .createTextNode()
 .appendChild()
 ```
+```
+const fig = document.querySelector('.featured-image');
+const img = fig.querySelector('img');
+const altImg  = img.getAttribute('alt');
+// console.log(altImg);
+const figCap = document.createElement('figcaption');
+const figCapText = document.createTextNode(altImg);
+// figCap.textContent = 'Earthrise on the moon!';
+
+figCap.appendChild(figCapText);
+fig.appendChild(figCap);
+
+```
+
+## Add Inline CSS to an element
+add any css property to any element via js using style attribute
+inline css overrides whatever css 
+```
+document.querySelector('.cta a').style
+document.querySelector('.cta a').style.color = ''
+document.querySelector('.cta a').style.cssText = 'padding: 1em; color: white; background-color: red;'
+
+.hasAttribute("style")
+.getAttribute("style")
+.setAttribute("style","color:red")
+.removeAttribute("style")
+
+document.querySelector(".cta a").setAttribute("style","padding: 2em")
+document.querySelector(".cta a").setAttribute("style","padding: 2em; color: green;")
+
+```
+
+
 
 
 ```
