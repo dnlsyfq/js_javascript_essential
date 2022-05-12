@@ -9,7 +9,7 @@ document.body
 document.title
 document.URL
 document.getElementById("")
-document.getElementsByClassName("") // array
+document.getElementsByClassName("") // array html collection
 document.getElementsByTagName("") // array
 document.querySelector("") 
 document.querySelectorAll("")
@@ -35,6 +35,36 @@ if(ctaElement.hasAttribute("target")){
 } else {
     ctaElement.setAttribute("target","_blank");
 }
+
+
+document.querySelector('main') // html tag
+document.querySelector('.maincontent') // class
+document.querySelector('main li:last-child') // parent child
+
+
+document.querySelectorAll('main li') // nodeslist
+document.querySelectorAll('main li').forEach(i => i.style.backgroundColor='red')
+
+document.querySelector('h1').className
+document.querySelector('h1').className = 'new-class
+
+// multiple class
+document.querySelector('main li:first-child').classList
+document.querySelector('main li:first-child').classList.add('new-class')
+document.querySelector('main li:first-child').classList.remove('new-class')
+document.querySelector('main li:first-child').classList.toggle('new-class')
+document.querySelector('main li:first-child').classList.replace('old-class','new-class')
+
+
+// attributes
+document.querySelector('img').hasAttribute('src')
+document.querySelector('img').getAttribute('src')
+document.querySelector('img').setAttribute('alt','backpack')
+document.querySelector('img').removeAttribute('src')
+
+document.querySelector('.site-title').style
+
+
 
 
 ```
