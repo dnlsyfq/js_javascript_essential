@@ -2,6 +2,22 @@
 alert()
 ```
 
+# Array
+```
+let item = "flashlight";
+
+const collection = ["Piggy", item, 5, true];
+
+collection[2] = "camera";
+// console.log(collection.length)
+collection[collection.length] = "new item";
+collection[9] = "at the end";
+
+console.log(collection[8]);
+console.log(collection[9]);
+
+```
+
 # DOM
 ```
 window.document
