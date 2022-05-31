@@ -2,6 +2,205 @@
 alert()
 ```
 
+### Float Decimals
+```
+float.toFixed(int)
+```
+
+### Currency
+* need locale, currency
+*ja-Jp
+*en-CA
+```
+const number = 23434.34
+
+console.log(new Intl.NumberFormat('de-De',{style:'currency',currency:'EUR'}).format(number));
+```
+
+```
+const formatter = (locale, currency, value) => {
+  value = value.toFixed(2)
+  let formattedValue = new Intl.NumberFormat(locale,{
+    style:'currency',
+    currency:currency,
+  }).format(value);
+  return formattedValue;
+}
+
+
+const tipCalculator = (sum, percentage, locale, currency) => {
+  let tip = sum * (percentage / 100);
+  let total = sum + tip;
+  console.log(`
+      Sum before tip: ${formatter(locale,currency, sum)}
+      Tip percentage: ${percentage}%
+      Tip:            ${formatter(locale,currency,tip)}
+      Total:          ${formatter(locale,currency,total)}
+    `);
+};
+
+// tipCalculator(29.95, 18);
+
+tipCalculator(29.95, 18,'de-De','EUR');
+```
+
+### Callback Function
+```
+// Helper function to format currency numbers. Used by tipCalculator
+const formatter = (locale = "en-US", currency = "USD", value) => {
+  let formattedValue = new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency: currency,
+  }).format(value);
+
+  return formattedValue;
+};
+
+// Callback receives finalTip object, creates and outputs table on the DOM.
+const printHTML = (finalTip) => {
+  const tipTable = document.createElement("table");
+  tipTable.innerHTML = `
+    <tr>
+      <td>Sum before tip:</td>
+      <td>${finalTip.sum}</td>
+    </tr>
+    <tr>
+      <td>Tip percentage:</td>
+      <td>${finalTip.percentage}</td>
+    </tr>
+    <tr>
+      <td>Tip:</td>
+      <td>${finalTip.tip}</td>
+    </tr>
+    <tr>
+      <td>Total:</td>
+      <td>${finalTip.total}</td>
+    </tr>
+  `;
+  document.querySelector("main").append(tipTable);
+};
+
+// Create a finalTip object with all the data. Send it to the printHTML callback.
+const tipCalculator = (sum, percentage, locale, currency,callback) => {
+  let tip = sum * (percentage / 100);
+  let total = sum + tip;
+
+  const finalTip = {
+    sum: formatter(locale, currency, sum),
+    percentage: percentage + "%",
+    tip: formatter(locale, currency, tip),
+    total: formatter(locale, currency, total),
+  };
+
+  callback(finalTip)
+};
+
+tipCalculator(29.95, 18, "de-DE", "EUR",printHTML);
+
+
+```
+
+```
+class Backpack {
+  constructor(
+    name,
+    volume,
+    color,
+    pocketNum,
+    strapLengthL,
+    strapLengthR,
+    lidOpen,
+    dateAcquired,
+    image
+  ) {
+    this.name = name;
+    this.volume = volume;
+    this.color = color;
+    this.pocketNum = pocketNum;
+    this.strapLength = {
+      left: strapLengthL,
+      right: strapLengthR,
+    };
+    this.lidOpen = lidOpen;
+    this.dateAcquired = dateAcquired;
+    this.image = image;
+  }
+  toggleLid(lidStatus) {
+    this.lidOpen = lidStatus;
+  }
+  newStrapLength(lengthLeft, lengthRight) {
+    this.strapLength.left = lengthLeft;
+    this.strapLength.right = lengthRight;
+  }
+  backpackAge() {
+    let now = new Date();
+    let acquired = new Date(this.dateAcquired);
+    let elapsed = now - acquired; // elapsed time in milliseconds
+    let daysSinceAcquired = Math.floor(elapsed / (1000 * 3600 * 24));
+    return daysSinceAcquired;
+  }
+}
+
+export default Backpack;
+
+import Backpack from "./Backpack.js";
+
+const everydayPack = new Backpack(
+  "Everyday Backpack",
+  30,
+  "grey",
+  15,
+  26,
+  26,
+  false,
+  "December 5, 2018 15:00:00 PST",
+  "../assets/images/everyday.svg"
+);
+
+const content = `
+  <figure class="backpack__image">
+    <img src=${everydayPack.image} alt="" loading="lazy" />
+  </figure>
+  <h1 class="backpack__name">${everydayPack.name}</h1>
+  <ul class="backpack__features">
+    <li class="feature backpack__volume">Volume:<span> ${
+      everydayPack.volume
+    }l</span></li>
+    <li class="feature backpack__color">Color:<span> ${
+      everydayPack.color
+    }</span></li>
+    <li class="feature backpack__age">Age:<span> ${everydayPack.backpackAge()} days old</span></li>
+    <li class="feature backpack__pockets">Number of pockets:<span> ${
+      everydayPack.pocketNum
+    }</span></li>
+    <li class="feature backpack__strap">Left strap length:<span> ${
+      everydayPack.strapLength.left
+    } inches</span></li>
+    <li class="feature backpack__strap">Right strap length:<span> ${
+      everydayPack.strapLength.right
+    } inches</span></li>
+    <li class="feature backpack__lid">Lid status:<span> ${
+        everydayPack.lidOpen ? "open" : "closed"
+    }</span></li>
+  </ul>
+`;
+
+const main = document.querySelector(".maincontent");
+
+const newArticle = document.createElement("article");
+newArticle.classList.add("backpack");
+newArticle.setAttribute("id", "everyday");
+newArticle.innerHTML = content;
+
+main.append(newArticle);
+
+```
+
+### Ternary Operator
+```
+console.log(everydayPack.lidOpen ? "open" : "closed")
+```
+
 # Array
 ```
 let item = "flashlight";
