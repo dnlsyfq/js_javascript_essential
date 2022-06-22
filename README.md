@@ -370,3 +370,139 @@ index.html
     </script>
 </body>
 ```
+
+### Conditional statements
+
+```
+if (everydayPack.volume > 15 && everydayPack.pocketNum >= 5) {
+  console.log("Backpack is used")
+} else {
+  console.log("Backpack is new")
+}
+```
+```
+if (everydayPack.volume > 15 || everydayPack.pocketNum >= 5) {
+  console.log("Backpack is used")
+} else {
+  console.log("Backpack is new")
+}
+```
+
+### switch
+
+```
+    switch(true){
+        case age < 30:
+            description="new"
+            break;
+        case age  >= 30 && age < 365;
+            description="lightly used"
+            break;
+        case age >= 365 && age < 1095;
+            description="used"
+            break;
+        case age >= 1095;
+            description="old";
+            break;
+        default:
+            console.log(`There is no description for ${age}.`);
+    }
+```
+
+### loop
+
+* array
+```
+const stuff = ["piggy", "headlamp", "pen", "pencil", "eraser", "water bottle"];
+
+let stuffList = document.createElement("ul");
+
+for (let i = 0; i < stuff.length; i++) {
+  let listItem = document.createElement("li");
+  listItem.innerHTML = stuff[i];
+  stuffList.append(listItem);
+}
+
+for (const item of stuff) {
+  let listItem = document.createElement("li");
+  listItem.innerHTML = item;
+  stuffList.append(listItem);
+}
+
+stuff.forEach((item) => {
+  let listItem = document.createElement("li");
+  listItem.innerHTML = item;
+  stuffList.append(listItem);
+});
+```
+
+* object
+
+```
+const nestedObjects = {
+  item01: {
+    name: "piggy",
+    type: "toy",
+    weight: 30,
+  },
+  item02: {
+    name: "headlamp",
+    type: "equipment",
+    weight: 120,
+  },
+  item03: {
+    name: "pen",
+    type: "tool",
+    weight: 30,
+  },
+  item04: {
+    name: "pencil",
+    type: "tool",
+    weight: 30,
+  },
+  item05: {
+    name: "eraser",
+    type: "tool",
+    weight: 40,
+  },
+  item03: {
+    name: "water bottle",
+    type: "equipment",
+    weight: 1300,
+  },
+};
+
+let stuffList = document.createElement("ul");
+
+for (const singleObject in nestedObjects) {
+  let listItem = document.createElement("li");
+  listItem.innerHTML = `Name: ${nestedObjects[singleObject].name}`;
+  stuffList.append(listItem);
+}
+```
+
+### Array map
+
+```
+const stuff = ["piggy", "headlamp", "pen", "pencil", "eraser", "water bottle"];
+
+let stuffList = document.createElement("ul");
+
+const stuffItems = stuff.map((item) => {
+  let listItem = document.createElement('li');
+  listItem.innerHTML = item;
+  return listItem;
+})
+
+stuffItems.forEach((item)=>{
+  stuffList.append(item);
+})
+```
+
+### Literal string and ternary
+
+```
+<li class="feature backpack__lid">
+    Lid status:<span>${item.lidOpen ? "open":"closed"}</span>
+</li>
+```
