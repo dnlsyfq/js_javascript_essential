@@ -506,3 +506,10 @@ stuffItems.forEach((item)=>{
     Lid status:<span>${item.lidOpen ? "open":"closed"}</span>
 </li>
 ```
+
+### Event Listener
+
+```
+target.addEventListener(event,callback fn, options)
+
+```
