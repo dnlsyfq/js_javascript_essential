@@ -409,6 +409,25 @@ if (everydayPack.volume > 15 || everydayPack.pocketNum >= 5) {
     }
 ```
 
+```
+let answer =window.prompt("Type yes, no or maybe")
+
+switch(answer){
+  case "YES":
+    console.log("You said YES!");
+    break;
+  case "MAYBE":
+    console.log("You maybe");
+    break;
+  case "NO":
+    console.log("You said no");
+    break;
+  default:
+    console.log("You rebel");
+    break;
+}
+```
+
 ### loop
 
 * array
