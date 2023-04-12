@@ -428,6 +428,19 @@ switch(answer){
 }
 ```
 
+### Terse ifs
+```
+if (expr) console.log("")
+if (expr) console.log("") else console.log("")
+```
+
+## ternary operator
+```
+var animal = 'cat';
+
+animal === 'cat' ? console.log("it's a cat"):console.log("it's a dog")
+
+```
 ### loop
 
 * array
