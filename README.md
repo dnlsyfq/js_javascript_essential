@@ -1,5 +1,16 @@
 ```
 alert()
+typeof <var>
+
+
+thing = [] // return object
+thing = {} // return object
+typeof thing === "object" && thing.hasOwnProperty("length") // true
+
+thing = null // thing === null , return true
+
+lodash // 
+
 ```
 
 ### Float Decimals
@@ -199,6 +210,8 @@ main.append(newArticle);
 ### Ternary Operator
 ```
 console.log(everydayPack.lidOpen ? "open" : "closed")
+
+var job = animal === "cat" ? "cat herder" : "dog catcher";
 ```
 
 # Array
