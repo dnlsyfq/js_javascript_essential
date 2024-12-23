@@ -558,3 +558,15 @@ stuffItems.forEach((item)=>{
 target.addEventListener(event,callback fn, options)
 
 ```
+
+### Escape Sequences
+```
+\'	  single quote
+\"	  double quote
+\\	  backslash
+\n	  newline
+\r	  carriage return
+\t	  tab
+\b	  backspace
+\f	  form feed
+```
